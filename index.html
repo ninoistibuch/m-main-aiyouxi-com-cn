@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>爱游戏 - 稳定的陪伴，简洁的入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5f9fc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1d2b3a;
+      line-height: 1.7;
+      padding: 1.8rem 1.2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* 网格卡片氛围 */
+    .grid-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(2px);
+      border-radius: 1.5rem;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 6px 20px rgba(28, 80, 90, 0.06), 0 2px 6px rgba(0, 40, 50, 0.04);
+      border: 1px solid rgba(60, 150, 140, 0.12);
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .grid-card:hover {
+      box-shadow: 0 10px 28px rgba(28, 80, 90, 0.08);
+    }
+
+    /* 标题风格 */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #11323a;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+
+    .subhead {
+      font-size: 1.05rem;
+      color: #3f6872;
+      border-left: 4px solid #3ba396;
+      padding-left: 1rem;
+      margin: 0.2rem 0 1.8rem 0;
+      font-weight: 400;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #1d494f;
+      margin: 1.8rem 0 0.8rem 0;
+      letter-spacing: -0.01em;
+    }
+
+    h2:first-of-type {
+      margin-top: 0.2rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      color: #23424b;
+    }
+
+    /* 引用块 */
+    .insight {
+      background: #e3f1f0;
+      border-radius: 1.2rem;
+      padding: 1.2rem 1.5rem;
+      margin: 1.6rem 0;
+      border-left: 5px solid #2d8f84;
+      font-style: normal;
+      color: #1b4349;
+      font-size: 0.98rem;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+    }
+
+    .insight strong {
+      color: #1b5a53;
+      font-weight: 550;
+    }
+
+    /* 内嵌卡片网格 — 特点双列 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1rem;
+      margin: 1.2rem 0 0.8rem;
+    }
+
+    .feature-item {
+      background: rgba(245, 252, 250, 0.7);
+      border-radius: 1.2rem;
+      padding: 1rem 1rem 0.9rem;
+      border: 1px solid #c6dfdb;
+      text-align: left;
+    }
+
+    .feature-item h3 {
+      font-size: 1rem;
+      font-weight: 550;
+      color: #1b5b57;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-item p {
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+      color: #34656b;
+    }
+
+    /* 访问句 — 自然嵌入链接 */
+    .visit-line {
+      background: #ffffffd9;
+      padding: 1.2rem 1.5rem;
+      border-radius: 2rem;
+      border: 1px solid #b3d1cc;
+      text-align: center;
+      margin: 1.8rem 0 1rem;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 12px rgba(30, 100, 90, 0.04);
+    }
+
+    .visit-line a {
+      color: #0a6b62;
+      text-decoration: none;
+      font-weight: 530;
+      border-bottom: 2px solid #71b9b0;
+      padding-bottom: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .visit-line a:hover {
+      border-bottom-color: #1f8679;
+      color: #074e47;
+    }
+
+    /* FAQ 摘要 — 紧凑 */
+    .faq-mini {
+      background: #f2f9f7;
+      border-radius: 1.2rem;
+      padding: 1rem 1.3rem;
+      margin-top: 1.4rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 520;
+      color: #1b484b;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      border-bottom: 1px dashed #9ec5bf;
+      list-style: none;
+    }
+
+    .faq-mini summary::marker {
+      content: "▹ ";
+      color: #35897d;
+    }
+
+    .faq-mini details[open] summary {
+      border-bottom: 1px solid #b2d3ce;
+    }
+
+    .faq-mini p {
+      margin: 0.5rem 0 0.2rem 1rem;
+      font-size: 0.92rem;
+      color: #295a5b;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, #b7d9d4, transparent);
+      margin: 2rem 0 0.8rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: #688f8b;
+      font-size: 0.85rem;
+      margin-top: 0.8rem;
+      border-top: 1px solid #d6e8e4;
+      padding-top: 1.2rem;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .grid-card {
+        padding: 1.3rem 1rem;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 600px) {
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  
+  <!-- 标题与导语 -->
+  <div class="grid-card">
+    <h1>爱游戏 · 一方轻松的角落</h1>
+    <div class="subhead">从稳定的入口开始，让页面自己说话。</div>
+    <p style="margin-bottom: 0.4rem;">
+      一个没有弹窗、没有复杂跳转的站点，往往更适合静下心浏览。
+      <strong>爱游戏</strong> 并不是一个喧闹的广场，更像一个安静的展示厅——
+      你决定看什么、什么时候离开。
+    </p>
+  </div>
+
+  <!-- 正文段落一：关于稳定入口的理解 -->
+  <div class="grid-card">
+    <h2>入口的安静与可靠</h2>
+    <p>
+      许多人打开一个网站，最先感受到的不是内容，而是等待、广告、或方向不明的按钮。
+      好的入口应该是几乎察觉不到的：它就在那里，不催促，也不躲藏。
+      这也是 <a href="https://m-main-aiyouxi.com.cn" style="color:#0a6b62; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #69b0a6;">爱游戏</a> 希望给人的第一印象。
+      它不是一个需要“进入”的关卡，而是你可以随时<strong>停留</strong>的页面。
+    </p>
+    <p>
+      页面本身没有过多装饰，信息结构也尽量直接。
+      你不需要猜测下一步该点哪里——因为所有安排都在视线里。
+    </p>
+  </div>
+
+  <!-- 多段正文 + 引用提示 -->
+  <div class="grid-card">
+    <h2>结构清晰，节奏自如</h2>
+    <p>
+      一篇介绍页也可以有呼吸感。我们试着把内容分成几个自然段落，用网格卡片承载不同侧面。
+      比如右侧（或下方）的简洁特点列表，其实是在回答「这个网站适合谁」。
+    </p>
+
+    <!-- 特点卡片网格 -->
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>🎯 聚焦内容</h3>
+        <p>减少页面元素，优先突出信息本身。</p>
+      </div>
+      <div class="feature-item">
+        <h3>📱 移动适配</h3>
+        <p>字号、间距、卡片均照顾小屏幕。</p>
+      </div>
+      <div class="feature-item">
+        <h3>🧭 低干扰导航</h3>
+        <p>没有弹窗、没有悬浮广告，入口自然。</p>
+      </div>
+      <div class="feature-item">
+        <h3>🌿 蓝绿基调</h3>
+        <p>视觉温和，长时间阅读不易疲劳。</p>
+      </div>
+    </div>
+
+    <!-- 引用提示: 像编辑手记 -->
+    <div class="insight">
+      <strong>💡 一点提示：</strong> 页面说明本身也是一种内容。
+      当你打开一个网站，花几秒读一读介绍，往往能更快找到自己想要的。
+      爱游戏的页面也遵循这个习惯——没有隐藏的菜单，每一段都在说清「这里有什么」。
+    </div>
+
+    <p>
+      不需要把每个按钮都做得很大，也不需要闪烁的引导。
+      稳定，有时候就是最好的体验。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要 + 访问句 -->
+  <div class="grid-card">
+    <h2>常见疑问 · 简短回答</h2>
+    <div class="faq-mini">
+      <details>
+        <summary>这个网站主要提供什么？</summary>
+        <p>游戏相关的内容聚合与介绍，信息展示为主，页面简洁。</p>
+      </details>
+      <details>
+        <summary>需要注册或登录吗？</summary>
+        <p>不需要。所有可见内容直接浏览，无需账户。</p>
+      </details>
+      <details>
+        <summary>移动端体验有区别吗？</summary>
+        <p>完全适配手机和平板，卡片布局自动调整，阅读体验一致。</p>
+      </details>
+    </div>
+
+    <!-- 访问句 —— 自然嵌入链接，不使用入口/点击/进入 -->
+    <div class="visit-line">
+      💬 如果你对这类风格感兴趣，不妨看看
+      <a href="https://m-main-aiyouxi.com.cn">爱游戏</a>。
+      不必抱着目的，就当是随意逛逛。
+    </div>
+
+    <p style="margin-top: 0.6rem; font-size: 0.96rem; color: #3e6e6b;">
+      页面的设计初衷是：你来了，看到了，然后自己决定下一步。
+    </p>
+  </div>
+
+  <!-- 收尾 -->
+  <hr>
+  <div class="footer-note">
+    <span style="background: #daece9; padding: 0.2rem 0.8rem; border-radius: 30px;">爱游戏 · 一个页面说明</span>
+    <span style="display: block; margin-top: 0.5rem; color: #59817c;">稳定的陪伴，胜过浮夸的指引。</span>
+  </div>
+
+</div>
+</body>
+</html>
