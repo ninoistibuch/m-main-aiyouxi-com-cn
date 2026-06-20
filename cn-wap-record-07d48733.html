@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>麻将胡了 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+            background-color: #f7f1e9;
+            color: #2d2a24;
+            line-height: 1.7;
+        }
+        .page {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+        }
+        /* hero 区 */
+        .hero {
+            background: #fdfbf8;
+            border-radius: 32px;
+            padding: 2.5rem 2rem 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            margin-bottom: 2.8rem;
+            border: 1px solid #e3d9ce;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #4a3f34;
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #5b4f42;
+            max-width: 680px;
+        }
+        .hero .intro-remark {
+            margin-top: 1.3rem;
+            padding: 1rem 1.3rem;
+            background: #ece3d9;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            border-left: 4px solid #aa8f7a;
+        }
+        /* 内容通用 */
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 470;
+            margin: 2.2rem 0 0.8rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid #dacfc3;
+            color: #3f372e;
+            letter-spacing: 0.3px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1.8rem 0 0.4rem;
+            color: #514538;
+        }
+        p, li {
+            margin-bottom: 0.9rem;
+            font-size: 1rem;
+        }
+        .highlight-box {
+            background: #f8f1ea;
+            border-radius: 24px;
+            padding: 1.4rem 1.6rem;
+            margin: 1.6rem 0;
+            border: 1px solid #ddd3c7;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .highlight-box strong {
+            color: #5f4d3b;
+        }
+        .faq-item {
+            margin: 1.2rem 0 0.6rem;
+            padding-left: 0.5rem;
+            border-left: 3px solid #c1b1a1;
+            padding-left: 1rem;
+        }
+        .faq-item .q {
+            font-weight: 510;
+            color: #3d352b;
+        }
+        .faq-item .a {
+            color: #4b4238;
+            margin-top: 0.2rem;
+        }
+        .btn-wrapper {
+            margin-top: 2rem;
+            text-align: left;
+        }
+        .btn {
+            display: inline-block;
+            background: #9f8977;
+            color: #fefcf9;
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 450;
+            letter-spacing: 0.6px;
+            border: 1px solid #8f7a68;
+            transition: background 0.2s;
+            font-size: 0.95rem;
+        }
+        .btn:hover {
+            background: #8b7561;
+        }
+        .footer-links {
+            margin-top: 2.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #d8cdc0;
+            font-size: 0.9rem;
+            color: #5a4e40;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 1.8rem;
+        }
+        .footer-links a {
+            color: #6c5d4d;
+            text-decoration: none;
+            border-bottom: 1px dotted #b7a799;
+        }
+        .footer-links a:hover {
+            border-bottom: 1px solid #6c5d4d;
+        }
+        .subtle-note {
+            background: #ece4db;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 0.85rem;
+            color: #5a4f41;
+            margin: 0.4rem 0;
+        }
+        @media (max-width: 640px) {
+            .page {
+                padding: 1.2rem 1rem 2.5rem;
+            }
+            .hero {
+                padding: 1.8rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            .btn {
+                padding: 0.6rem 1.4rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero -->
+    <div class="hero">
+        <h1>麻将胡了 · 简明指南</h1>
+        <p>从牌张组合到番型判读，这里整理了一份轻量级的知识索引。适合偶尔摸牌的朋友快速查阅基础规则与常见变体。</p>
+        <div class="intro-remark">
+            🀄️ 访问提醒：本页为介绍性内容，若希望直接体验相关场景，可以前往 <a href="https://cn-wap-mahjong.com" style="color:#5f4b37;text-decoration:underline;font-weight:500;">麻将胡了</a> 页面了解更多。
+        </div>
+    </div>
+
+    <!-- 优势区 / 知识切入点 -->
+    <h2>为什么需要一份简明指南</h2>
+    <p>麻将的玩法体系庞杂，不同地区的规则在番种、吃碰杠以及计分方式上存在差异。无论你刚刚接触还是想重温某些细节，将核心概念整理成条目都能节省不少翻查时间。下面几个方面是多数牌桌场景的基础。</p>
+
+    <div class="highlight-box">
+        <strong>· 牌型结构</strong> 顺子、刻子、对子、杠 —— 熟悉这些基本组合是判断胡牌的前提。<br>
+        <strong>· 番种识别</strong> 平和、清一色、七对、杠上开花……各类番型对应的条件与叠加方式。<br>
+        <strong>· 特殊规则</strong> 部分变体包含“无番胡”“花牌”“百搭”等附加条款，提前了解避免误判。
+    </div>
+
+    <!-- 说明区 -->
+    <h2>常见场景与提示</h2>
+    <p>每局牌的信息量不小，从舍牌到听牌都需要注意力。以下场景是很多玩家曾经遇到的，提前留意可以更顺畅。</p>
+    <ul style="margin-left:1.2rem; list-style:square; color:#3f372e;">
+        <li><strong>多人牌局中番型叠加</strong> —— 某些番种可以复合计算，例如清一色+碰碰胡，需要确认计番上限。</li>
+        <li><strong>听牌后的舍牌安全</strong> —— 避免点炮不仅靠运气，也靠观察河面与各家舍牌习惯。</li>
+        <li><strong>自摸与点炮的权重</strong> —— 不同规则下自摸加番或均摊方式不同，建议开局前约定清楚。</li>
+    </ul>
+    <p>如果你希望在这些场景下获得更系统的梳理，可以翻阅 <a href="https://cn-wap-mahjong.com" style="color:#6c5d4d;text-decoration:underline;">麻将胡了</a> 中的规则专题，内容按照入门、进阶和变体分类。</p>
+
+    <!-- FAQ 摘要 -->
+    <h2>FAQ 摘要</h2>
+    <div class="faq-item">
+        <div class="q">Q：胡牌时一定要至少一个番种吗？</div>
+        <div class="a">大部分规则要求胡牌必须包含至少一番（无番胡规则除外）。具体番种目录以各地通用表为准。</div>
+    </div>
+    <div class="faq-item">
+        <div class="q">Q：字牌（风、箭）在组合时有什么特殊限制？</div>
+        <div class="a">字牌只能组成刻子或对子（部分规则允许字牌顺子，但极少见）。风牌通常与圈风、门风关联番种。</div>
+    </div>
+    <div class="faq-item">
+        <div class="q">Q：同一张牌被多家需要时，出牌顺序如何？</div>
+        <div class="a">一般按照“胡＞碰/杠＞吃”的优先级，具体需要看当下采用哪一套规则。建议同桌提前统一。</div>
+    </div>
+    <div class="subtle-note">更多问答可以在资源页的 FAQ 板块找到对应条目。</div>
+
+    <!-- 底部链接 / 再次自然放置 a 标签 -->
+    <div class="footer-links">
+        <span>相关参考：<a href="https://cn-wap-mahjong.com">麻将胡了</a> · 规则整理</span>
+        <span>本页仅为信息介绍，不构成任何指导建议</span>
+        <span>版本 2025</span>
+    </div>
+
+    <!-- 附加说明（不是调用/点击诱导） -->
+    <p style="margin-top:2rem; font-size:0.9rem; color:#6c6054; border-left:2px solid #ccbfb1; padding-left:1rem;">
+        🀄 内容基于常见麻将规则整理，具体计番与特殊条款请以实际牌桌约定为准。<br>
+        如需查看完整规则集，可访问 <a href="https://cn-wap-mahjong.com" style="color:#5f4b37;">麻将胡了</a> 页面。
+    </p>
+</div>
+</body>
+</html>
